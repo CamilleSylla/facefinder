@@ -41,15 +41,20 @@ class App extends React.Component {
   onButtonSubmit = () => {
     this.setState({imageURL: this.state.input});
       
-    app.models.initModel(
-      {id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-      .then(generalModel => {
-        return generalModel.predict("@@sampleTrain");
-      })
-      .then(response => {
-        var concepts = response['outputs'][0]['data']['concepts']
-      });
-
+    
+    app.models
+    .predict(
+      "a403429f2ddf4b49b307e318f00e528b",
+       "https://samples.clarifai.com/face-det.jpg")
+       .then(
+    function(response) {
+      // do something with response
+      console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+    },
+    function(err) {
+      // there was an error
+    }
+  );
 
   }
 
