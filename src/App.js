@@ -71,11 +71,8 @@ class App extends React.Component {
        .catch(err => console.log(err))
   }
 
-  onRouteChange = () => {
-    this.setState({route: 'home'});
-  }
-  onLogOut = () => {
-    this.setState({route: 'signin'});
+  onRouteChange = (route) => {
+    this.setState({route: route});
   }
 
   render() {
@@ -83,7 +80,7 @@ class App extends React.Component {
     <div className="App">
       <Particles className='particles'
                 params={particlesOptions} />
-      <Navigation onLogOut={this.onLogOut}/>
+      <Navigation onRouteChange={this.onRouteChange}/>
      { this.state.route ==='signin' 
     ? <Signin onRouteChange={this.onRouteChange}/>
      : <div>
