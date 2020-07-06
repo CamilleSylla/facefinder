@@ -74,13 +74,16 @@ class App extends React.Component {
   onRouteChange = () => {
     this.setState({route: 'home'});
   }
+  onLogOut = () => {
+    this.setState({route: 'signin'});
+  }
 
   render() {
     return (
     <div className="App">
       <Particles className='particles'
                 params={particlesOptions} />
-      <Navigation/>
+      <Navigation onLogOut={this.onLogOut}/>
      { this.state.route ==='signin' 
     ? <Signin onRouteChange={this.onRouteChange}/>
      : <div>
