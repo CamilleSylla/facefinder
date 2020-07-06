@@ -7,6 +7,7 @@ import Logo from './components/logo/logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import Particles from 'react-particles-js';
+import Signin from './components/Signin/Signin';
 
 
 const app = new Clarifai.App({
@@ -79,6 +80,7 @@ class App extends React.Component {
                 params={particlesOptions} />
         
      <Navigation/>
+     <Signin/>
      <Logo/>
      <Rank/>
      <ImageLinkForm
